@@ -12,7 +12,7 @@ function App() {
   const [editId, setEditId] = useState(null);
 
  
-  const API_URL = "http://localhost:5000/employees";
+  const API_URL = "https://ems-frontend-dc69.onrender.com";
 
   // FETCH EMPLOYEES
   const getEmployees = async () => {
