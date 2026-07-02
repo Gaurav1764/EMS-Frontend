@@ -9,7 +9,7 @@ import { PlusIcon } from "./components/Icons";
 import "./App.css";
 
 function App() {
-  const API_URL = "https://ems-backend-cgyt.onrender.com/employees";
+  const API_URL = "https://ems-backend-cgyt.onrender.com/api/employees";
 
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(false);
