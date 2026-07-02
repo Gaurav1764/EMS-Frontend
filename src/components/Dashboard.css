@@ -1,0 +1,147 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.dashboard-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-hover);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-value {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Individual card styling overrides */
+.dashboard-card.employees {
+  border-left: 4px solid var(--primary);
+}
+.dashboard-card.employees .card-icon-wrapper {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+.dashboard-card.employees:hover .card-icon-wrapper {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.dashboard-card.salary {
+  border-left: 4px solid var(--success);
+}
+.dashboard-card.salary .card-icon-wrapper {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+.dashboard-card.salary:hover .card-icon-wrapper {
+  background: var(--success);
+  color: white;
+  box-shadow: 0 0 15px var(--success-glow);
+}
+
+.dashboard-card.average {
+  border-left: 4px solid var(--warning);
+}
+.dashboard-card.average .card-icon-wrapper {
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--warning);
+  border: 1px solid rgba(251, 191, 36, 0.15);
+}
+.dashboard-card.average:hover .card-icon-wrapper {
+  background: var(--warning);
+  color: white;
+  box-shadow: 0 0 15px var(--warning-glow);
+}
+
+.dashboard-card.highest {
+  border-left: 4px solid var(--danger);
+}
+.dashboard-card.highest .card-icon-wrapper {
+  background: rgba(244, 63, 94, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(244, 63, 94, 0.15);
+}
+.dashboard-card.highest:hover .card-icon-wrapper {
+  background: var(--danger);
+  color: white;
+  box-shadow: 0 0 15px var(--danger-glow);
+}
+
+/* Subtle background accent glow */
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.05;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card.employees::before { background: var(--primary); }
+.dashboard-card.salary::before { background: var(--success); }
+.dashboard-card.average::before { background: var(--warning); }
+.dashboard-card.highest::before { background: var(--danger); }
+
+.dashboard-card:hover::before {
+  opacity: 0.12;
+  transform: scale(1.2);
+}
+
+@media (max-width: 640px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
